@@ -19,9 +19,9 @@ import { UpdateСontentDto } from './dto/update-content.dto';
     exclude: ['replaceOneBase', 'createManyBase'],
   },
 })
-@UseGuards(AuthGuard())
 @ApiTags('Contents')
 @Controller('contents')
+@UseGuards(AuthGuard())
 export class ContentsController implements CrudController<Content> {
   constructor(public service: ContentsService) {}
 }
