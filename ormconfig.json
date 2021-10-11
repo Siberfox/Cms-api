@@ -6,9 +6,9 @@
   "password": "Cms",
   "database": "Cms",
   "entities": ["src/**/*.entity.ts"],
-  "migrations": ["migration/*.ts"],
-  "seeds": ["seeds/**/*.seed.ts"],
-  "factories": ["factories/**/*.factory.ts"],
+  "migrations": ["database/migrations/*.ts"],
+  "seeds": ["database/seeds/**/*.seed.ts"],
+  "factories": ["database/factories/**/*.factory.ts"],
   "cli": {
     "migrationsDir": "migration"
   }
