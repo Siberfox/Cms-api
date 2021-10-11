@@ -11,6 +11,7 @@ import {
 import { Base } from 'src/common/entities/base';
 import { Screen } from 'src/screens/screens.entity';
 import { Content } from 'src/contents/contents.entity';
+import { PlaylistsContent } from 'src/playlists-contents/playlists-contents.entity';
 
 @Entity()
 export class Playlist extends Base {
@@ -26,9 +27,13 @@ export class Playlist extends Base {
   @Column()
   description: string;
 
-  @OneToMany(() => Content, (content) => content.playlist, { cascade: true })
+  @OneToMany(
+    () => PlaylistsContent,
+    (playlistContent) => playlistContent.playlist,
+    { cascade: true },
+  )
   @Exclude({ toPlainOnly: true })
-  contents: Content[];
+  playlistContent: PlaylistsContent[];
 
   @ManyToOne(() => Screen, (screen) => screen.playlists, {
     onDelete: 'CASCADE',

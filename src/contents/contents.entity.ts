@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { Base } from 'src/common/entities/base';
 import { Playlist } from 'src/playlists/playlist.entity';
+import { PlaylistsContent } from 'src/playlists-contents/playlists-contents.entity';
 
 @Entity()
 export class Content extends Base {
@@ -25,9 +26,11 @@ export class Content extends Base {
   @Column()
   description: string;
 
-  @ManyToOne(() => Playlist, (playlist) => playlist.contents, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn({ name: 'playlistId', referencedColumnName: 'id' })
-  playlist: Playlist;
+  @OneToMany(
+    () => PlaylistsContent,
+    (playlistContent) => playlistContent.playlist,
+    { cascade: true },
+  )
+  @Exclude({ toPlainOnly: true })
+  playlistContent: PlaylistsContent[];
 }

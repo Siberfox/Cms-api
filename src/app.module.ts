@@ -7,6 +7,7 @@ import { EventsModule } from './events/events.module';
 import { PlaylistsModule } from './playlists/playlists.module';
 import { ContentsModule } from './contents/contents.module';
 import { ScreensModule } from './screens/screens.module';
+import { PlaylistsContentsModule } from './playlists-contents/playlists-contents.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { ScreensModule } from './screens/screens.module';
     ScreensModule,
     PlaylistsModule,
     ContentsModule,
+    PlaylistsContentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
